@@ -1,0 +1,2 @@
+class VhsTapesController < ApplicationController
+end
