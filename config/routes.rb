@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :reviews
-  resources :vhs_tapes
-  resources :rentals
-  resources :clients
+  resources :reviews, only: [:index, :show, :create, :update, :destroy]
+  resources :vhs_tapes, only: [:index, :show, :create, :update, :destroy]
+  resources :rentals, only: [:index, :show, :create, :update, :destroy]
+  resources :clients, only: [:index, :show, :create, :update, :destroy]
+
+  post '/login', to: 'sessions#login'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

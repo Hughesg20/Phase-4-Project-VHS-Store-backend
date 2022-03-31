@@ -9,8 +9,14 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+
+gem 'bcrypt', "~> 3.1.7"
+
+gem 'faker', '~> 2.10', '>= 2.10.2'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]

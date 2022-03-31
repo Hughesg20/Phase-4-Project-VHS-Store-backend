@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
-    belongs_to :vhs_tapes
+    belongs_to :VHS_Tape
     
 end
