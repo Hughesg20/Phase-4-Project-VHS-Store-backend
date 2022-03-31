@@ -26,20 +26,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_161147) do
 
   create_table "rentals", force: :cascade do |t|
     t.integer "client_id", null: false
-    t.integer "VHS_Tape_id", null: false
+    t.integer "vhs_tape_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["VHS_Tape_id"], name: "index_rentals_on_VHS_Tape_id"
     t.index ["client_id"], name: "index_rentals_on_client_id"
+    t.index ["vhs_tape_id"], name: "index_rentals_on_vhs_tape_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "vhs_tapes_id", null: false
+    t.integer "vhs_tape_id", null: false
     t.string "review"
     t.integer "star_rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["vhs_tapes_id"], name: "index_reviews_on_vhs_tapes_id"
+    t.index ["vhs_tape_id"], name: "index_reviews_on_vhs_tape_id"
   end
 
   create_table "vhs_tapes", force: :cascade do |t|
@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_24_161147) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "rentals", "VHS_Tapes"
   add_foreign_key "rentals", "clients"
-  add_foreign_key "reviews", "vhs_tapes", column: "vhs_tapes_id"
+  add_foreign_key "rentals", "vhs_tapes"
+  add_foreign_key "reviews", "vhs_tapes"
 end
