@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :rentals, only: [:index, :show, :create, :update, :destroy]
   resources :clients, only: [:index, :show, :create, :update, :destroy]
 
-  post '/login', to: 'sessions#login'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/me', to: 'clients#show'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
