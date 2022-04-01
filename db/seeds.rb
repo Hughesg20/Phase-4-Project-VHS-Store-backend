@@ -30,7 +30,7 @@ puts "finisherd vhstapes"
 400.times{
     review = Faker::Lorem.paragraph(sentence_count: (rand(1..15)))
     rating = rand(1..5)
-    Review.create(vhs_tape_id: VhsTape.pluck(:id).sample, review: review, star_rating: rating)
+    Review.create(vhs_tape_id: VhsTape.pluck(:id).sample , client_id:Client.pluck(:id).sample, review: review, star_rating: rating)
 }
  puts "finished reviews"
 20.times{
