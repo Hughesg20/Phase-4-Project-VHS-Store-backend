@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
-   before_action :authorize
-   skip_before_action :authorize, only: [:create]
+   
+   skip_before_action :authorize, only: [:create, :show]
    
     def index 
         clients = Client.all
@@ -8,12 +8,8 @@ class ClientsController < ApplicationController
     end
     
     def show
-        client = Client.find_by(id: session[:user_id])
-        if client
-          render json: client
-        else
-          render json: { error: "Not authorized" }, status: :unauthorized
-        end
+        client = Client.find_by(id: session[:client_id])
+        render json: client
       end
 
     def create
@@ -22,6 +18,7 @@ class ClientsController < ApplicationController
     end
 
     def update 
+    
         client = Client.find(params[:id])
         client.update!(client_params)
         render json: client, status: :ok

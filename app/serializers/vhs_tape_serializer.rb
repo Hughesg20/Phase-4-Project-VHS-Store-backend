@@ -1,4 +1,4 @@
 class VhsTapeSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :price, :rating, :title
   has_many :reviews
 end
