@@ -1,8 +1,8 @@
 class Client < ApplicationRecord
     has_secure_password
 
-    has_many :rentals
-    has_many :vhs_tapes, through: :rentals
+    has_many :rentals, dependent: :destroy
+    has_many :vhs_tapes, through: :rentals, dependent: :destroy
 
     validates :first_name, length: {maximum: 50}
     validates :last_name, length: {maximum: 50}
